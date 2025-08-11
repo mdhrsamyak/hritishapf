@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import SnakeGame from "./components/SnakeGame";
-import SplashCursor from "./components/SplashCursor";
-import Contact from "./pages/Contact";
-
-import Footer from "./pages/Footer";
 import HomePage from "./pages/HomePage";
 import LoadingAnimation from "./pages/LoadingAnimation";
-import Projects from "./pages/Projects";
-import Sidebar from "./pages/Sidebar";
-import Skills from "./pages/Skills";
-import Animate from "./pages/LoadingAnimation";
+
+import Page2 from "./pages/Page2";
+import Page3 from "./pages/Page3";
+import Tools from "./pages/Tools";
 
 function App() {
   const [displayAnimation, setDisplayAnimation] = useState(true);
@@ -29,10 +24,13 @@ function App() {
         </div>
       ) : (
         <div
-          className="overflow-y-scroll relative"
+          className="overflow-y-scroll relative px-30"
           style={{ scrollbarWidth: "none" }}
         >
           <HomePage />
+          <Page2 />
+          <Page3 />
+          <Tools />
         </div>
       )}
     </>
