@@ -33,7 +33,7 @@ const LoadingAnimation = () => {
   return (
     <>
       <motion.div
-        className="h-screen w-screen grid place-items-center overflow-hidden"
+        className="h-screen w-screen grid place-items-center overflow-hidden bg-black"
         variants={animateDiv}
         initial="initial"
         animate="animate"
@@ -43,7 +43,7 @@ const LoadingAnimation = () => {
           initial="initial"
           animate="animate"
         >
-          <img src="./hm.png" alt="hm" className="h-200 w-200" />
+          <img src="./hmw.png" alt="hm" className="h-200 w-200" />
         </motion.div>
       </motion.div>
     </>
