@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import SnakeGame from "./components/SnakeGame";
 import SplashCursor from "./components/SplashCursor";
@@ -5,34 +6,35 @@ import Contact from "./pages/Contact";
 
 import Footer from "./pages/Footer";
 import HomePage from "./pages/HomePage";
+import LoadingAnimation from "./pages/LoadingAnimation";
 import Projects from "./pages/Projects";
 import Sidebar from "./pages/Sidebar";
 import Skills from "./pages/Skills";
+import Animate from "./pages/LoadingAnimation";
 
 function App() {
-  // window.addEventListener("contextmenu", (e) => e.preventDefault());
+  const [displayAnimation, setDisplayAnimation] = useState(true);
 
-  // window.addEventListener("keydown", (e) => {
-  //   if (
-  //     e.key === "F12" ||
-  //     (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
-  //     (e.ctrlKey && e.key === "U")
-  //   ) {
-  //     e.preventDefault();
-  //   }
-  // });
+  useEffect(() => {
+    setTimeout(() => {
+      setDisplayAnimation(false);
+    }, 3000);
+  }, []);
+
   return (
     <>
-      <div className="overflow-y-scroll" style={{ scrollbarWidth: "none" }}>
-        {/* <SplashCursor /> */}
-        <Sidebar />
-        <HomePage />
-        <Projects />
-        <Skills />
-        {/* <SnakeGame /> */}
-        <Contact />
-        <Footer />
-      </div>
+      {displayAnimation ? (
+        <div className="fixed top-0 left-0 h-screen w-screen z-[999]">
+          <LoadingAnimation />
+        </div>
+      ) : (
+        <div
+          className="overflow-y-scroll relative"
+          style={{ scrollbarWidth: "none" }}
+        >
+          <HomePage />
+        </div>
+      )}
     </>
   );
 }
