@@ -29,10 +29,10 @@ function App() {
           style={{ scrollbarWidth: "none" }}
         >
           <HomePage />
-          {/* <Page2 />
-          <Page3 />
-          <Tools />
-          <Brands /> */}
+          <Page2 />
+          {/* <Page3 /> */}
+          {/* <Tools /> */}
+          {/* <Brands /> */}
         </div>
       )}
     </>
