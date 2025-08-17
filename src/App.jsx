@@ -30,9 +30,9 @@ function App() {
         >
           <HomePage />
           <Page2 />
-          {/* <Page3 /> */}
-          {/* <Tools /> */}
-          {/* <Brands /> */}
+          <Page3 />
+          <Tools />
+          <Brands />
         </div>
       )}
     </>

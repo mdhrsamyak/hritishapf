@@ -2,26 +2,28 @@ import React from "react";
 
 function Page3() {
   return (
-    <div className="flex min-h-screen" id="home">
-      <main className="flex-1  text-black py-[10px] relative">
-        <div className="flex w-full">
-          <div className="flex-shrink-0 transform rotate-z-270 origin-center text-red-600 font-extrabold text-[120px] inline-flex">
+    <div className="flex min-h-screen">
+      <main className="flex-1  text-black py-[20vh] relative">
+        <div className="flex w-full relative">
+          <div className="absolute xl:-left-100 top-1/2 -translate-y-1/2 rotate-[270deg] origin-center text-red-600 font-extrabold xl:text-[120px] whitespace-nowrap sm:text-[30px] sm:-left-30 ">
             MY EXPERTISE
           </div>
-          <div className="flex flex-col w-full items-end">
-            {whatido.map((text, i) => (
-              <div
-                className="flex flex-col w-full py-8 border-b border-gray-500 "
-                key={i}
-              >
-                <span className="text-4xl font-semibold uppercase">
-                  {text.text1}
-                </span>
-                <span className="text-xl font-bold text-gray-600">
-                  {text.text2}
-                </span>
-              </div>
-            ))}
+          <div className="flex justify-end w-full">
+            <div className="flex flex-col  items-end xl:min-w-[600px] sm:max-w-[400px] max-w-[300px]">
+              {whatido.map((text, i) => (
+                <div
+                  className="flex flex-col w-full xl:py-8 sm:py-5 border-b border-gray-500 "
+                  key={i}
+                >
+                  <h3 className="xl:text-4xl sm:text-3xl font-semibold uppercase">
+                    {text.text1}
+                  </h3>
+                  <span className="text-xl font-bold text-gray-600">
+                    {text.text2}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </main>
