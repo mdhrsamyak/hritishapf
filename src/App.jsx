@@ -6,6 +6,7 @@ import LoadingAnimation from "./pages/LoadingAnimation";
 import Page2 from "./pages/Page2";
 import Page3 from "./pages/Page3";
 import Tools from "./pages/Tools";
+import Brands from "./pages/Brands";
 
 function App() {
   const [displayAnimation, setDisplayAnimation] = useState(true);
@@ -20,7 +21,7 @@ function App() {
     <>
       {displayAnimation ? (
         <div className="fixed top-0 left-0 h-screen w-screen z-[999]">
-          <LoadingAnimation />
+          {/* <LoadingAnimation /> */}
         </div>
       ) : (
         <div
@@ -31,6 +32,7 @@ function App() {
           <Page2 />
           <Page3 />
           <Tools />
+          <Brands />
         </div>
       )}
     </>

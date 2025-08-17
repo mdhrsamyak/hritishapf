@@ -2,7 +2,7 @@ import React from "react";
 
 function Page2() {
   return (
-    <div className="flex min-h-screen" id="home">
+    <div className="flex min-h-screen">
       <main className="flex-1 bg-white text-black py-[10vh] relative">
         <div className="flex flex-col  h-full justify-around">
           <div className="flex max-w-[900px] text-[30px] font-semibold">

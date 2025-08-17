@@ -3,7 +3,7 @@ import React from "react";
 function Page3() {
   return (
     <div className="flex min-h-screen" id="home">
-      <main className="flex-1 bg-white text-black py-[10px] relative">
+      <main className="flex-1  text-black py-[10px] relative">
         <div className="flex w-full">
           <div className="flex-shrink-0 transform rotate-z-270 origin-center text-red-600 font-extrabold text-[120px] inline-flex">
             MY EXPERTISE
@@ -11,10 +11,12 @@ function Page3() {
           <div className="flex flex-col w-full items-end">
             {whatido.map((text, i) => (
               <div
-                className="flex flex-col w-full py-8 border-b border-gray-500"
+                className="flex flex-col w-full py-8 border-b border-gray-500 "
                 key={i}
               >
-                <span className="text-4xl font-semibold">{text.text1}</span>
+                <span className="text-4xl font-semibold uppercase">
+                  {text.text1}
+                </span>
                 <span className="text-xl font-bold text-gray-600">
                   {text.text2}
                 </span>
@@ -30,7 +32,7 @@ function Page3() {
 const whatido = [
   {
     text1: "Social Media Management",
-    text2: "monthly calendar + copywright",
+    text2: "Monthly Calendar + Copywriting",
   },
   {
     text1: "Brand Strategy & Development",
