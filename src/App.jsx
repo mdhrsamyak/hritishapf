@@ -9,7 +9,7 @@ import Tools from "./pages/Tools";
 import Brands from "./pages/Brands";
 
 function App() {
-  const [displayAnimation, setDisplayAnimation] = useState(true);
+  const [displayAnimation, setDisplayAnimation] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,18 +21,18 @@ function App() {
     <>
       {displayAnimation ? (
         <div className="fixed top-0 left-0 h-screen w-screen z-[999]">
-          {/* <LoadingAnimation /> */}
+          <LoadingAnimation />
         </div>
       ) : (
         <div
-          className="overflow-y-scroll relative px-30"
+          className="overflow-y-scroll px-8 md:px-30"
           style={{ scrollbarWidth: "none" }}
         >
           <HomePage />
-          <Page2 />
+          {/* <Page2 />
           <Page3 />
           <Tools />
-          <Brands />
+          <Brands /> */}
         </div>
       )}
     </>
