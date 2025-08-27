@@ -4,9 +4,9 @@ import HomePage from "./pages/HomePage";
 import LoadingAnimation from "./pages/LoadingAnimation";
 
 import Page2 from "./pages/Page2";
-import Page3 from "./pages/Page3";
 import Tools from "./pages/Tools";
 import Brands from "./pages/Brands";
+import Expertise from "./pages/Expertise";
 
 function App() {
   const [displayAnimation, setDisplayAnimation] = useState(false);
@@ -24,15 +24,13 @@ function App() {
           <LoadingAnimation />
         </div>
       ) : (
-        <div
-          className="overflow-y-scroll px-8 md:px-30"
-          style={{ scrollbarWidth: "none" }}
-        >
+        <div className="overflow-y-scroll" style={{ scrollbarWidth: "none" }}>
           <HomePage />
           <Page2 />
-          <Page3 />
+          <Expertise />
+          {/* <Page3 />
           <Tools />
-          <Brands />
+          <Brands /> */}
         </div>
       )}
     </>
