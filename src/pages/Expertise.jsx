@@ -58,40 +58,69 @@ function Expertise() {
       </div>
       <div className="flex flex-col gap-20">
         {/* Map This */}
-        <div className="flex flex-col">
-          <div className="flex justify-between">
-            <div className="text-4xl font-medium">
-              BRAND STRATEGY & DEVELOPMENT
+        {expertiseinfo.map((info, index) => (
+          <div className="flex flex-col" key={index}>
+            <div className="flex justify-between">
+              <div className="text-4xl font-medium">{info.title}</div>
+              <div className="cursor-pointer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="35"
+                  height="35"
+                  viewBox="0 0 55 55"
+                  fill="none"
+                >
+                  <path
+                    d="M0.833496 29.1667V25H25.8335V0H30.0002V25H55.0002V29.1667H30.0002V54.1667H25.8335V29.1667H0.833496Z"
+                    fill="black"
+                  />
+                </svg>
+              </div>
             </div>
-            <div className="cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                viewBox="0 0 55 55"
-                fill="none"
-              >
-                <path
-                  d="M0.833496 29.1667V25H25.8335V0H30.0002V25H55.0002V29.1667H30.0002V54.1667H25.8335V29.1667H0.833496Z"
-                  fill="black"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="flex flex-col items-end text-right">
-            <div className="text-2xl font-light">
-              Strategy + Growth + Positioning
-            </div>
-            <div className="text-xl font-extralight max-w-[860px]">
-              Leveraging data-driven insights to develop targeted strategies
-              that enhance brand positioning, drive growth, and optimize market
-              presence.
+            <div className="flex flex-col gap-4 items-end text-right mt-5">
+              <div className="text-2xl font-light">{info.subTitle}</div>
+              <div className="text-xl font-extralight max-w-[720px]">
+                {info.description}
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
 }
 
 export default Expertise;
+
+const expertiseinfo = [
+  {
+    title: "BRAND STRATEGY & DEVELOPMENT",
+    subTitle: "Strategy + Growth + Positioning",
+    description:
+      "Leveraging data-driven insights to develop targeted strategies that enhance brand positioning, drive growth, and optimize market presence.",
+  },
+  {
+    title: "BRAND IDENTITY CREATION",
+    subTitle: "Design + Consistency + Recognition",
+    description:
+      "Crafting visually brand identities that ensure consistency across all touchpoints, enhancing recognition and fostering long-term brand loyalty.",
+  },
+  {
+    title: "SOCIAL MEDIA MANAGEMENT",
+    subTitle: "Monthly Calendar + Copywriting",
+    description:
+      "Developing strategic monthly content calendars and copywriting that aligns with brand voice, driving consistent engagement and audience growth.",
+  },
+  {
+    title: "CONTENT MARKETING",
+    subTitle: "Creation + Editing + Engagement + Conversion",
+    description:
+      "Optimizing content to engage audiences, drive conversions, and support long-term brand growth through consistent storytelling.",
+  },
+  {
+    title: "PAID ADVERTISING MANAGEMENT",
+    subTitle: "Campaigns + ROI + Optimization",
+    description:
+      "Running targeted ad campaigns on platforms like Meta Business Suite, optimizing for maximum ROI through continuous testing, audience segmentation, and performance analysis.",
+  },
+];
