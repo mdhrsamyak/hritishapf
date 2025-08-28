@@ -51,10 +51,10 @@ function Expertise() {
             </defs>
           </svg>
         </div>
-        <div className="text-[100px] sm:text-[150px] md:text-[200px] font-medium tracking-[12.5px] whitespace-nowrap">
+        <div className="text-6xl xs:text-[90px] md:text-[120px] lg:text-[150px] xl:text=[210px] font-medium tracking-[12.5px] whitespace-nowrap">
           MY EXPERTISE
         </div>
-        <div className="w-[65%] h-[1px] bg-black drop-shadow-2xl drop-shadow-zinc-800 mb-[100px]"></div>
+        <div className="w-[55%] h-[1px] bg-black drop-shadow-2xl drop-shadow-zinc-800 mb-[100px]"></div>
       </div>
       <div className="flex flex-col gap-20">
         {/* Map This */}
