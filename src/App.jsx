@@ -34,8 +34,8 @@ function App() {
           <Expertise />
           <ToolsBrands />
           <Footer />
-          <A1 />
-          <A2 />
+          {/* <A1 />
+          <A2 /> */}
 
           {/* <Page3 />
           <Tools />

@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <div className="relative overflow-hidden bg-[#F8F8F8F7] text-black font-extrabold">
-      <div className="relative z-10 flex flex-col md:flex-row justify-between items-center md:items-start  md:px-20 py-10 h-full">
+      <div className="relative z-10 flex flex-col md:flex-row justify-between items-center md:items-start  md:px-20 pb-10 h-full">
         <div>
           <img src="/hm.png" alt="hm" className="h-10 w-10 object-cover" />
         </div>

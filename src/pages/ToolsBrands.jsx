@@ -3,16 +3,19 @@ import CircleLogo from "../components/CircleLogo";
 
 function ToolsBrands() {
   return (
-    <div className="flex flex-col bg-[#F8F8F8] px-20 py-20">
-      <div className="text-[70px] font-bold">
+    <div className="flex flex-col bg-[#F8F8F8] px-5 py-20">
+      <div className="text-[22px]  lg:text-[50px] xl:text-[70px] font-bold">
         <span className="text-[#777676]">TOOLS I</span>
         <span> WORK WITH</span>
       </div>
-      <main className="flex gap-20 text-black py-5">
-        <CircleLogo logo={apps} />
-        <CircleLogo logo={apps2} />
-      </main>
-      <div className="flex justify-end text-[70px] font-bold w-full">
+      <div className="w-full px-auto">
+        <main className="flex flex-col lg:flex-row gap:10 lg:gap-20 text-black py-5 w-fit">
+          <CircleLogo logo={apps} />
+          <CircleLogo logo={apps2} />
+        </main>
+      </div>
+
+      <div className="flex justify-end text-[22px]  lg:text-[50px] xl:text-[70px] font-bold w-full">
         <span className="text-[#777676]">BRANDS I'VE </span>
         <span> WORKED WITH</span>
       </div>

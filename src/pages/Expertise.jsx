@@ -2,7 +2,7 @@ import React from "react";
 
 function Expertise() {
   return (
-    <div className="flex flex-col bg-[#F8F8F8F7]  px-20 pt-[300px] pb-[130px]">
+    <div className="flex flex-col bg-[#F8F8F8F7] px-7 lg:px-20 pt-[300px] pb-[130px]">
       <div className="flex flex-col items-center w-full">
         <div className="flex justify-center gap-1 items-center">
           <svg
@@ -51,7 +51,7 @@ function Expertise() {
             </defs>
           </svg>
         </div>
-        <div className="text-6xl xs:text-[90px] md:text-[120px] lg:text-[150px] xl:text=[210px] font-medium tracking-[12.5px] whitespace-nowrap">
+        <div className="text-3xl xs:text-[50px] md:text-[80px] lg:text-[120px] xl:text[210px] font-medium tracking-[12.5px] whitespace-nowrap">
           MY EXPERTISE
         </div>
         <div className="w-[55%] h-[1px] bg-black drop-shadow-2xl drop-shadow-zinc-800 mb-[100px]"></div>
@@ -60,9 +60,11 @@ function Expertise() {
         {/* Map This */}
         {expertiseinfo.map((info, index) => (
           <div className="flex flex-col" key={index}>
-            <div className="flex justify-between">
-              <div className="text-4xl font-medium">{info.title}</div>
-              <div className="cursor-pointer">
+            <div className="flex justify-between items-center">
+              <div className="text-xl lg:text-2xl xl:text-4xl font-medium">
+                {info.title}
+              </div>
+              <div className="cursor-pointer lg:block hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="35"
@@ -76,10 +78,26 @@ function Expertise() {
                   />
                 </svg>
               </div>
+              <div className="cursor-pointer block lg:hidden">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 8.07692V6.92308H6.92308V0H8.07692V6.92308H15V8.07692H8.07692V15H6.92308V8.07692H0Z"
+                    fill="black"
+                  />
+                </svg>
+              </div>
             </div>
             <div className="flex flex-col gap-4 items-end text-right mt-5">
-              <div className="text-2xl font-light">{info.subTitle}</div>
-              <div className="text-xl font-extralight max-w-[720px]">
+              <div className="text-lg lg:text-2xl font-light">
+                {info.subTitle}
+              </div>
+              <div className="text-sm lg:text-lg font-extralight max-w-[720px]">
                 {info.description}
               </div>
             </div>

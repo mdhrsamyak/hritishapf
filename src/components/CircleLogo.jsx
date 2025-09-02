@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function CircleLogo({ logo }) {
   const visibleCount = 7;
-  const radius = 200; // Adjust for circle size
+  const [radius, setRadius] = useState(200);
   const logoSize = 100; // Size of each logo
   const angleStep = (2 * Math.PI) / visibleCount; // Angle between logos
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,6 +18,16 @@ function CircleLogo({ logo }) {
     return () => clearInterval(interval);
   }, [logo.length]);
 
+  useEffect(() => {
+    if (window.innerWidth < 500) {
+      setRadius(100);
+    } else if (window.innterWidthe < 900) {
+      setRadius(150);
+    } else {
+      setRadius(200);
+    }
+  }, [window.innerWidth]);
+
   const getPosition = (slot) => {
     const angle = slot * angleStep; // Angle for this slot
     const x = radius * Math.cos(angle);
@@ -29,7 +39,7 @@ function CircleLogo({ logo }) {
   };
 
   return (
-    <div className="relative h-[600px] w-[600px]">
+    <div className="relative h-[350px] w-[350px] lg:h-[600px] lg:w-[600px]">
       <AnimatePresence>
         {Array.from({ length: Math.min(visibleCount, logo.length) }).map(
           (_, slot) => {
@@ -40,7 +50,7 @@ function CircleLogo({ logo }) {
             return (
               <div
                 key={`${app.id}-${slot}`} // Unique key for stable animations
-                className="absolute flex justify-center items-center w-[100px] h-[100px] rounded-[20px]"
+                className="absolute flex justify-center items-center w-[50px] h-[50px] lg:w-[100px] lg:h-[100px] rounded-[20px]"
                 style={position}
               >
                 {app.icon}
