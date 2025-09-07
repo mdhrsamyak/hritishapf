@@ -2,25 +2,25 @@ import React from "react";
 
 function A2() {
   return (
-    <div className="flex relative py-[130px] px-[114px]">
+    <div className="flex relative py-[130px] px-[40px] md:px-[114px]">
       <div className="flex flex-col w-full">
-        <div className="text-[40px] font-bold mb-10">
+        <div className="text-[16px] md:text-[24] lg:text-[36px] font-bold mb-10">
           SOCIAL MEDIA STRATEGY: HARI BUDHA MAGAR, A DISABLED MOUNTAINEER
         </div>
-        <div className="flex xl:gap-40">
-          <div className="h-[650px] w-[350px] ml-[120px] border border-gray-300">
+        <div className="flex flex-col items-center lg:items-start lg:flex-row gap-10 lg:gap-20 xl:gap-40">
+          <div className="max-h-[650px] max-w-[350px] w-full h-full ml-0  lg:ml-[100px] border border-gray-300">
             <img
               src="A2/insta.png"
               alt="Instagram Post"
-              className="h-full w-full object-fill"
+              className="h-full w-full object-contain"
             />
           </div>
-          <div className="flex flex-col w-[1000px] gap-20">
+          <div className="flex flex-col w-auto lg:w-[1000px] gap-20">
             <div className="flex flex-col gap-3">
-              <div className="text-[20px] font-bold">
+              <div className="text-[18px] lg:text-[20px] font-bold">
                 Project Description / Goals:
               </div>
-              <div className="flex flex-col gap-2 text-[20px] font-extralight">
+              <div className="flex flex-col gap-2 text-[12px] sm:text-[16px] lg:text-[16px] font-extralight">
                 <span>
                   1. Increase global awareness about Hari Budha Magar's
                   mountaineering journey, focusing on breaking barriers for
@@ -39,12 +39,12 @@ function A2() {
               </div>
             </div>
             <div className="flex flex-col gap-3">
-              <div className="text-[20px] font-bold">
+              <div className="text-[18px] lg:text-[20px] font-bold">
                 Creative Process & Strategy:
               </div>
-              <div className="flex flex-col gap-2 text-[20px] font-extralight">
+              <div className="flex flex-col gap-2 text-[12px] sm:text-[16px] font-extralight">
                 <span>
-                  1. Developed storytelling-led content highlighting Hari'’'s
+                  1. Developed storytelling-led content highlighting Hari's
                   record-breaking climbs, using summit photography, video
                   snippets, and behind-the-scenes footage to drive authenticity
                   and audience resonance.
@@ -56,7 +56,7 @@ function A2() {
                   Ottobock) to showcase innovation and resilience.
                 </span>
                 <span>
-                  3. Multi-Channel Execution – Optimized content distribution
+                  3. Multi-Channel Execution - Optimized content distribution
                   across Instagram, Facebook, and LinkedIn to maximize
                   international reach, audience growth, and engagement.
                 </span>
@@ -65,20 +65,22 @@ function A2() {
           </div>
         </div>
         <div className="flex flex-col mt-20 gap-15">
-          <div className="flex text-[20px] font-extralight gap-3">
-            <span className="font-bold">Skills used:</span>
+          <div className="flex text-[12px] sm:text-[16px] font-extralight gap-3">
+            <span className="text-[18px] lg:text-[20px] font-bold">
+              Skills used:
+            </span>
             <p>
               Content Planning and Scheduling + Copy writing
               <br /> Communication and Team Collaboration
             </p>
-            <p className="ml-2">
+            <p className="md:ml-2">
               Instagram & Facebook Analytics for
               <br /> Reporting
             </p>
           </div>
-          <div className="flex flex-col gap-7 text-[20px]">
+          <div className="flex flex-col gap-7 text-[18px] lg:text-[20px]">
             <div className="font-bold">Results:</div>
-            <div className="flex flex-col font-extralight gap-5">
+            <div className="flex flex-col text-[12px] sm:text-[16px] font-extralight gap-5">
               <span>
                 • Generated 468K+ total views (402K organic, 66K paid) across
                 campaigns, significantly boosting Hari Budha Magar's digital

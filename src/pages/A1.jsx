@@ -2,9 +2,9 @@ import React from "react";
 
 function A1() {
   return (
-    <div className="flex relative py-[130px] px-[114px]">
+    <div className="flex relative py-[130px] px-[40px] md:px-[114px]">
       <div className="flex flex-col w-full">
-        <div className="text-[40px] font-bold mb-10">
+        <div className="text-[16px] md:text-[24] lg:text-[36px] font-bold mb-10">
           SOCIAL MEDIA STRATEGY: HARLEY STREET HEARING
         </div>
         <div className="flex justify-around gap-2 flex-wrap mb-[150px]">
@@ -16,20 +16,20 @@ function A1() {
             />
           ))}
         </div>
-        <div className="flex xl:gap-40">
-          <div className="h-[650px] w-[350px] ml-[120px] border border-gray-300">
+        <div className="flex flex-col items-center lg:items-start lg:flex-row gap-10 lg:gap-20 xl:gap-40">
+          <div className="max-h-[650px] max-w-[350px] w-full h-full ml-0  lg:ml-[100px] border border-gray-300">
             <img
               src="A1/insta.jpg"
               alt="Instagram Post"
-              className="h-full w-full object-fill"
+              className="h-full w-full object-contain "
             />
           </div>
-          <div className="flex flex-col w-[1000px] gap-20">
+          <div className="flex flex-col w-auto lg:w-[1000px] gap-20">
             <div className="flex flex-col gap-3">
-              <div className="text-[20px] font-bold">
+              <div className="text-[18px] lg:text-[20px] font-bold">
                 Project Description / Goals:
               </div>
-              <div className="flex flex-col gap-2 text-[20px] font-extralight">
+              <div className="flex flex-col gap-2 text-[12px] sm:text-[16px] lg:text-[16px] font-extralight">
                 <span>
                   1. Educate patients by sharing practical hearing health tips
                   and advice.
@@ -46,10 +46,10 @@ function A1() {
               </div>
             </div>
             <div className="flex flex-col gap-3">
-              <div className="text-[20px] font-bold">
+              <div className="text-[18px] lg:text-[20px] font-bold">
                 Creative Process & Strategy:
               </div>
-              <div className="flex flex-col gap-2 text-[20px] font-extralight">
+              <div className="flex flex-col gap-2 text-[12px] sm:text-[16px] font-extralight">
                 <span>
                   1. Educational Campaigns - Developed a series sharing hearing
                   care habits to boost awareness and establish the brand as a
@@ -69,22 +69,24 @@ function A1() {
           </div>
         </div>
         <div className="flex flex-col mt-20 gap-15">
-          <div className="flex text-[20px] font-extralight gap-3">
-            <span className="font-bold">Skills used:</span>
+          <div className="flex flex-wrap text-[12px] sm:text-[16px] font-extralight gap-3">
+            <div className="text-[18px] lg:text-[20px] font-bold">
+              Skills used:
+            </div>
             <p>
               Content Planning and Scheduling + Copy writing
               <br /> Communication and Team Collaboration
             </p>
-            <p className="ml-2">
+            <p className="md:ml-2">
               Canva - Graphic Designing <br /> Instagram & Facebook Analytics
               for Reporting
             </p>
           </div>
-          <div className="flex flex-col gap-7 text-[20px]">
+          <div className="flex flex-col gap-7 text-[18px] lg:text-[20px]">
             <div className="font-bold">Results:</div>
-            <div className="flex flex-col font-extralight gap-5">
+            <div className="flex flex-col text-[12px] sm:text-[16px] font-extralight gap-5">
               <span>
-                • Increased Harley Street Hearing’s Instagram engagement by 65%
+                • Increased Harley Street Hearing's Instagram engagement by 65%
                 in three months through expert-driven content.
               </span>
               <span>

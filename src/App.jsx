@@ -11,9 +11,10 @@ import A1 from "./pages/A1";
 import A2 from "./pages/A2";
 import ToolsBrands from "./pages/ToolsBrands";
 import Footer from "./pages/Footer";
+import Sidebar from "./pages/Sidebar";
 
 function App() {
-  const [displayAnimation, setDisplayAnimation] = useState(false);
+  const [displayAnimation, setDisplayAnimation] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,17 +30,14 @@ function App() {
         </div>
       ) : (
         <div className="overflow-y-scroll" style={{ scrollbarWidth: "none" }}>
+          <Sidebar />
           <HomePage />
           <Page2 />
           <Expertise />
           <ToolsBrands />
           <Footer />
-          {/* <A1 />
-          <A2 /> */}
-
-          {/* <Page3 />
-          <Tools />
-          <Brands /> */}
+          <A1 />
+          <A2 />
         </div>
       )}
     </>

@@ -8,22 +8,51 @@ function ToolsBrands() {
         <span className="text-[#777676]">TOOLS I</span>
         <span> WORK WITH</span>
       </div>
-      <div className="w-full px-auto">
-        <main className="flex flex-col lg:flex-row gap:10 lg:gap-20 text-black py-5 w-fit">
-          <CircleLogo logo={apps} />
-          <CircleLogo logo={apps2} />
-        </main>
+      <div className="flex flex-wrap w-full justify-around gap-[50px] my-[40px]">
+        <div className="flex flex-col gap-[10px] w-[500px] px-10 py-10 rounded-[20px] bg-[#1E1E1E]">
+          <div className="text-white text-[24px] md:text-[28px] lg:text-[32px] font-bold w-full text-right">
+            EDITING
+          </div>
+          <div className="flex flex-col gap-2 text-[16px] lg:text-[20px] font-extralight text-white">
+            <span>• CANVA</span>
+            <span>• IMOVIE</span>
+            <span>• CAPCUT</span>
+            <span>• ADOBE FRESCO</span>
+            <span>• SNAPSEED</span>
+            <span>• LIGHTROOM</span>
+            <span>• VSCO</span>
+            <span>• FIGMA</span>
+          </div>
+        </div>
+        <div className="flex flex-col gap-[10px] w-[500px] px-10 py-10 rounded-[20px] bg-[#1E1E1E]">
+          <div className="text-white text-[24px] md:text-[28px] lg:text-[32px] font-bold w-full text-right">
+            MARKETING
+          </div>
+          <div className="flex flex-col gap-2 text-[16px] lg:text-[20px] font-extralight text-white">
+            <span>• META BUSINESS SUITE</span>
+            <span>• ADS MANAGER</span>
+            <span>• FLODESK</span>
+            <span>• SLACK</span>
+            <span>• METRICOOL</span>
+            <span>• LATER</span>
+            <span>• LOOMLY</span>
+            <span>• MONDAY</span>
+            <span>• SCALE WITH SPARK</span>
+            <span>• NOTION</span>
+            <span>• FIGMA</span>
+          </div>
+        </div>
       </div>
 
-      <div className="flex justify-end text-[22px]  lg:text-[50px] xl:text-[70px] font-bold w-full">
+      <div className="flex justify-end text-[22px]  lg:text-[50px] xl:text-[70px] font-bold w-full my-[40px]">
         <span className="text-[#777676]">BRANDS I'VE </span>
         <span> WORKED WITH</span>
       </div>
-      <main className="flex-1  text-black py-20 relative">
+      <main className="flex-1  text-black py-20 relative bg-gray-300 rounded-[20px]">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-5 ">
           {logo.map((brand, i) => (
             <div key={i} className=" flex items-center justify-center">
-              <div className="bg-gray-300 rounded-2xl shadow-lg shadow-gray-400/50 transition-transform duration-300 ease-in-out hover:scale-105 ">
+              <div className="bg-gray-300 rounded-2xl transition-transform duration-300 ease-in-out hover:scale-105 ">
                 <img
                   src={brand.img}
                   alt={`brand-${i}`}

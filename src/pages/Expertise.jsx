@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Expertise() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleOpen = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <div className="flex flex-col bg-[#F8F8F8F7] px-7 lg:px-20 pt-[300px] pb-[130px]">
       <div className="flex flex-col items-center w-full">
@@ -58,51 +65,103 @@ function Expertise() {
       </div>
       <div className="flex flex-col gap-20">
         {/* Map This */}
-        {expertiseinfo.map((info, index) => (
-          <div className="flex flex-col" key={index}>
-            <div className="flex justify-between items-center">
-              <div className="text-xl lg:text-2xl xl:text-4xl font-medium">
-                {info.title}
-              </div>
-              <div className="cursor-pointer lg:block hidden">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="35"
-                  height="35"
-                  viewBox="0 0 55 55"
-                  fill="none"
+        {expertiseinfo.map((info, index) => {
+          const [open, setOpen] = useState(false);
+          return (
+            <div className="flex flex-col" key={index}>
+              <div className="flex justify-between items-center">
+                <div className="text-xl lg:text-2xl xl:text-4xl font-medium">
+                  {info.title}
+                </div>
+                {/* <div
+                  className="cursor-pointer lg:block hidden"
+                  onClick={() => toggleOpen(index)}
                 >
-                  <path
-                    d="M0.833496 29.1667V25H25.8335V0H30.0002V25H55.0002V29.1667H30.0002V54.1667H25.8335V29.1667H0.833496Z"
-                    fill="black"
-                  />
-                </svg>
-              </div>
-              <div className="cursor-pointer block lg:hidden">
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="35"
+                    height="35"
+                    viewBox="0 0 55 55"
+                    fill="none"
+                  >
+                    <path
+                      d="M0.833496 29.1667V25H25.8335V0H30.0002V25H55.0002V29.1667H30.0002V54.1667H25.8335V29.1667H0.833496Z"
+                      fill="black"
+                    />
+                  </svg>
+                </div>
+                <div
+                  className="cursor-pointer block lg:hidden"
+                  onClick={() => toggleOpen(index)}
                 >
-                  <path
-                    d="M0 8.07692V6.92308H6.92308V0H8.07692V6.92308H15V8.07692H8.07692V15H6.92308V8.07692H0Z"
-                    fill="black"
-                  />
-                </svg>
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 15 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 8.07692V6.92308H6.92308V0H8.07692V6.92308H15V8.07692H8.07692V15H6.92308V8.07692H0Z"
+                      fill="black"
+                    />
+                  </svg>
+                </div> */}
+                <div
+                  className="cursor-pointer"
+                  onClick={() => toggleOpen(index)}
+                >
+                  <motion.svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 55 55"
+                    className="h-[15px] w-[15px] lg:w-[35px] lg:h-[35px]"
+                    fill="none"
+                  >
+                    {/* Horizontal line */}
+                    <motion.path
+                      d="M0 27.5H55"
+                      stroke="black"
+                      strokeWidth="5"
+                      strokeLinecap="round"
+                      initial={false}
+                      animate={{ opacity: openIndex === index ? 0 : 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
+                    {/* Vertical line */}
+                    <motion.path
+                      d="M27.5 0V55"
+                      stroke="black"
+                      strokeWidth="5"
+                      strokeLinecap="round"
+                      initial={false}
+                      animate={{ rotate: openIndex === index ? 90 : 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      style={{ originX: "50%", originY: "50%" }}
+                    />
+                  </motion.svg>
+                </div>
               </div>
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0, y: -20 }}
+                    animate={{ opacity: 1, height: "auto", y: 0 }}
+                    exit={{ opacity: 0, height: 0, y: -20 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="flex flex-col gap-4 items-end text-right mt-5"
+                  >
+                    <div className="text-lg lg:text-2xl font-light">
+                      {info.subTitle}
+                    </div>
+                    <div className="text-sm lg:text-lg font-extralight max-w-[720px]">
+                      {info.description}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-            <div className="flex flex-col gap-4 items-end text-right mt-5">
-              <div className="text-lg lg:text-2xl font-light">
-                {info.subTitle}
-              </div>
-              <div className="text-sm lg:text-lg font-extralight max-w-[720px]">
-                {info.description}
-              </div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
