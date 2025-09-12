@@ -8,6 +8,8 @@ body {
   font-family: "Montserrat", sans-serif;
   overflow-y: scroll;
   scrollbar-width: none; /* Firefox */
+  overflow-x: hidden;
+  margin: 0 auto;
 }
 
 body::-webkit-scrollbar {

@@ -14,7 +14,7 @@ import Footer from "./pages/Footer";
 import Sidebar from "./pages/Sidebar";
 
 function App() {
-  const [displayAnimation, setDisplayAnimation] = useState(true);
+  const [displayAnimation, setDisplayAnimation] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {

@@ -1,68 +1,248 @@
-import React from "react";
-import CircleLogo from "../components/CircleLogo";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useAnimation,
+  animate,
+  delay,
+} from "framer-motion";
 
 function ToolsBrands() {
+  const [show, setShow] = useState(null);
+
+  const handleShow = (display) => {
+    if (show === display) {
+      setShow(null);
+      return;
+    }
+    setShow(display);
+  };
+
+  // marketing div slides from top
+  const marketingVariant = {
+    hidden: { y: -150, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.6 } },
+  };
+
+  // editing div slides from bottom
+  const editingVariant = {
+    hidden: { y: 150, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.6, delay: 0.2 } },
+  };
+
+  const toolsRef = useRef(null);
+  const brandsRef = useRef(null);
+
+  const toolsControls = useAnimation();
+  const brandsControls = useAnimation();
+
+  const toolsAnimation = {
+    initial: {
+      opacity: 0,
+      x: -200,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 20,
+      },
+    },
+  };
+
+  const ImageAnimation = {
+    initial: {
+      opacity: 0,
+      x: 200,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 20,
+        delay: 0.3,
+      },
+    },
+  };
+
+  const brandsAnimation = {
+    initial: {
+      opacity: 0,
+      x: 200,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 20,
+      },
+    },
+  };
+
+  // TOOLS I WORK WITH animation (from left)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          toolsControls.start({
+            x: 0,
+            opacity: 1,
+            transition: {
+              type: "spring",
+              stiffness: 300,
+              damping: 20,
+            },
+          });
+        } else {
+          toolsControls.start({
+            x: -200,
+            opacity: 0,
+            transition: { duration: 0.5, ease: "easeInOut" },
+          });
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (toolsRef.current) observer.observe(toolsRef.current);
+    return () => observer.disconnect();
+  }, [toolsControls]);
+
   return (
     <div className="flex flex-col bg-[#F8F8F8] px-5 py-20">
-      <div className="text-[22px]  lg:text-[50px] xl:text-[70px] font-bold">
+      <motion.div
+        variants={toolsAnimation}
+        initial={"initial"}
+        whileInView={"animate"}
+        className="flex items-center text-[22px] gap-2.5  lg:text-[50px] xl:text-[70px] font-bold cursor-pointer"
+        onClick={() => handleShow("tools")}
+      >
         <span className="text-[#777676]">TOOLS I</span>
         <span> WORK WITH</span>
-      </div>
-      <div className="flex flex-wrap w-full justify-around gap-[50px] my-[40px]">
-        <div className="flex flex-col gap-[10px] w-[500px] px-10 py-10 rounded-[20px] bg-[#1E1E1E]">
-          <div className="text-white text-[24px] md:text-[28px] lg:text-[32px] font-bold w-full text-right">
-            EDITING
-          </div>
-          <div className="flex flex-col gap-2 text-[16px] lg:text-[20px] font-extralight text-white">
-            <span>• CANVA</span>
-            <span>• IMOVIE</span>
-            <span>• CAPCUT</span>
-            <span>• ADOBE FRESCO</span>
-            <span>• SNAPSEED</span>
-            <span>• LIGHTROOM</span>
-            <span>• VSCO</span>
-            <span>• FIGMA</span>
-          </div>
-        </div>
-        <div className="flex flex-col gap-[10px] w-[500px] px-10 py-10 rounded-[20px] bg-[#1E1E1E]">
-          <div className="text-white text-[24px] md:text-[28px] lg:text-[32px] font-bold w-full text-right">
-            MARKETING
-          </div>
-          <div className="flex flex-col gap-2 text-[16px] lg:text-[20px] font-extralight text-white">
-            <span>• META BUSINESS SUITE</span>
-            <span>• ADS MANAGER</span>
-            <span>• FLODESK</span>
-            <span>• SLACK</span>
-            <span>• METRICOOL</span>
-            <span>• LATER</span>
-            <span>• LOOMLY</span>
-            <span>• MONDAY</span>
-            <span>• SCALE WITH SPARK</span>
-            <span>• NOTION</span>
-            <span>• FIGMA</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex justify-end text-[22px]  lg:text-[50px] xl:text-[70px] font-bold w-full my-[40px]">
-        <span className="text-[#777676]">BRANDS I'VE </span>
-        <span> WORKED WITH</span>
-      </div>
-      <main className="flex-1  text-black py-20 relative bg-gray-300 rounded-[20px]">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-5 ">
-          {logo.map((brand, i) => (
-            <div key={i} className=" flex items-center justify-center">
-              <div className="bg-gray-300 rounded-2xl transition-transform duration-300 ease-in-out hover:scale-105 ">
-                <img
-                  src={brand.img}
-                  alt={`brand-${i}`}
-                  className={`w-30 h-30  object-contain transition-transform duration-300 ease-in-out hover:scale-120 ${brand.style}`}
-                />
+        <svg
+          width="50"
+          height="50"
+          viewBox="0 0 50 50"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M39.5834 43.7504L39.5834 6.25043C39.5822 5.87076 39.4775 5.49861 39.2806 5.17402C39.0836 4.84944 38.8018 4.58472 38.4656 4.40836C38.1294 4.232 37.7514 4.15067 37.3724 4.17313C36.9934 4.1956 36.6277 4.321 36.3147 4.53585L9.23135 23.2858C8.10843 24.0629 8.10843 25.9338 9.23135 26.7129L36.3147 45.4629C36.6271 45.68 36.993 45.8072 37.3726 45.8309C37.7522 45.8546 38.1311 45.7738 38.468 45.5973C38.805 45.4208 39.0871 45.1553 39.2837 44.8297C39.4804 44.5041 39.584 44.1308 39.5834 43.7504Z"
+            fill="black"
+          />
+        </svg>
+      </motion.div>
+      {!show && (
+        <motion.div
+          variants={ImageAnimation}
+          initial={"initial"}
+          whileInView={"animate"}
+          className="flex w-full justify-end items-center overflow-hidden"
+        >
+          <img
+            src="/tb.jpg"
+            alt="just an image"
+            className="h-[557px] w-[1049px] object-contain mr-[80px]"
+          />
+        </motion.div>
+      )}
+      <AnimatePresence mode="wait">
+        {show === "tools" && (
+          <div className="flex justify-end flex-wrap w-full gap-[50px] my-[40px] lg:pr-[150px]">
+            <motion.div
+              variants={editingVariant}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              className="flex flex-col overflow-hidden gap-[10px] w-[500px] px-10 py-20 rounded-[20px] bg-[#1E1E1E] lg:mt-[200px] lg:min-h-[628px]"
+            >
+              <div className="text-white text-[24px] md:text-[28px] lg:text-[32px] font-bold w-full text-right">
+                EDITING
               </div>
+              <div className="flex flex-col gap-2 text-[16px] lg:text-[20px] font-extralight text-white">
+                <span>• CANVA</span>
+                <span>• IMOVIE</span>
+                <span>• CAPCUT</span>
+                <span>• ADOBE FRESCO</span>
+                <span>• SNAPSEED</span>
+                <span>• LIGHTROOM</span>
+                <span>• VSCO</span>
+                <span>• FIGMA</span>
+              </div>
+            </motion.div>
+            <motion.div
+              variants={marketingVariant}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              className="flex flex-col gap-[10px] w-[500px] px-10 py-20 rounded-[20px] bg-[#1E1E1E] lg:max-h-[628px]"
+            >
+              <div className="text-white text-[24px] md:text-[28px] lg:text-[32px] font-bold w-full text-right">
+                MARKETING
+              </div>
+              <div className="flex flex-col gap-2 text-[16px] lg:text-[20px] font-extralight text-white">
+                <span>• META BUSINESS SUITE</span>
+                <span>• ADS MANAGER</span>
+                <span>• FLODESK</span>
+                <span>• SLACK</span>
+                <span>• METRICOOL</span>
+                <span>• LATER</span>
+                <span>• LOOMLY</span>
+                <span>• MONDAY</span>
+                <span>• SCALE WITH SPARK</span>
+                <span>• NOTION</span>
+                <span>• FIGMA</span>
+              </div>
+            </motion.div>
+          </div>
+        )}
+
+        <motion.div
+          variants={brandsAnimation}
+          initial={"initial"}
+          whileInView={"animate"}
+          className="flex justify-end gap-2.5 items-center text-[22px]  lg:text-[50px] xl:text-[70px] font-bold w-full my-[40px] cursor-pointer"
+          onClick={() => handleShow("brands")}
+        >
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.4166 6.24957L10.4166 43.7496C10.4178 44.1292 10.5225 44.5014 10.7194 44.826C10.9164 45.1506 11.1982 45.4153 11.5344 45.5916C11.8706 45.768 12.2486 45.8493 12.6276 45.8269C13.0066 45.8044 13.3723 45.679 13.6853 45.4641L40.7687 26.7142C41.8916 25.9371 41.8916 24.0662 40.7687 23.2871L13.6853 4.53707C13.3729 4.32003 13.007 4.19276 12.6274 4.16908C12.2478 4.14539 11.8689 4.2262 11.532 4.40272C11.195 4.57924 10.9129 4.84472 10.7163 5.17032C10.5196 5.49593 10.416 5.86919 10.4166 6.24957Z"
+              fill="#777676"
+            />
+          </svg>
+          <span className="text-[#777676]">BRANDS I'VE </span>
+          <span> WORKED WITH</span>
+        </motion.div>
+        {show === "brands" && (
+          <main className="flex-1  text-black py-20 relative bg-gray-300 rounded-[20px]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-5 ">
+              {logo.map((brand, i) => (
+                <div key={i} className=" flex items-center justify-center">
+                  <div className="bg-gray-300 rounded-2xl transition-transform duration-300 ease-in-out hover:scale-105 ">
+                    <img
+                      src={brand.img}
+                      alt={`brand-${i}`}
+                      className={`w-30 h-30  object-contain transition-transform duration-300 ease-in-out hover:scale-120 ${brand.style}`}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </main>
+          </main>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

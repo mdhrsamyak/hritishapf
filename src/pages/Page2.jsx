@@ -4,7 +4,7 @@ function Page2() {
   return (
     <div className="flex h-screen">
       <main className="flex-1 bg-white text-black relative">
-        <div className="absolute bottom-2 left-2 text-[30pxA] lg:text-[50px] font-extrabold text-[#E5E2E2F7] z-20">
+        <div className="absolute bottom-2 left-2 text-[30px] lg:text-[50px] font-extrabold text-[#E5E2E2F7] z-20">
           01
         </div>
         <div className="flex flex-col lg:flex-row justify-between w-full h-full">
@@ -26,7 +26,11 @@ function Page2() {
             </div>
           </div>
           <div className="flex absolute z-10 top-0 right-0 w-[100%] lg:relative  lg:w-[36%] h-screen">
-            <img src="/page2.jpg" alt="image" className="h-full w-full cover" />
+            <img
+              src="/page2.jpg"
+              alt="image"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
         <div className="absolute top-0 left-0 w-full h-screen lg:hidden bg-gray-700 z-11 opacity-30"></div>

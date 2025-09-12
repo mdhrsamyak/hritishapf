@@ -37,13 +37,13 @@ function Sidebar() {
       </div>
       <div
         className={`flex items-start gap-5 fixed top-15 left-0 px-10 h-screen lg:opacity-30 hover:opacity-100
-      pointer-events-none transition-transform duration-500 z-1000 ${
-        open ? "translate-x-0" : "-translate-x-full"
-      } md:translate-x-0 md:flex md:flex-col gap-5 
+       transition-transform duration-500 z-1000 ${
+         open ? "translate-x-0" : "-translate-x-full"
+       } md:translate-x-0 md:flex md:flex-col gap-5 
         px-10`}
       >
         <div
-          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-gray-300 bg-blend-color-burn pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
+          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-md border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
           onClick={() => scrollToSection("home")}
         >
           <svg
@@ -77,7 +77,7 @@ function Sidebar() {
           </p>
         </div>
         <div
-          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
+          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-md border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
           onClick={() => scrollToSection("project")}
         >
           <svg
@@ -116,7 +116,7 @@ function Sidebar() {
           </p>
         </div>
         <div
-          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
+          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-md border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
           onClick={() => scrollToSection("project")}
         >
           <svg

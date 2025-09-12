@@ -1,6 +1,6 @@
 function HomePage() {
   return (
-    <div className="flex min-h-screen bg-[url('/bg-home.jpg')] bg-contain bg-no-repeat cursor-default sm:bg-contain xl:bg-cover">
+    <div className="flex min-h-screen bg-[url('/bg-home.jpg')] bg-cover bg-right bg-no-repeat cursor-default sm:bg-cover xl:bg-cover">
       <main className="flex flex-col justify-center items-center text-[#777676] w-full">
         <h1
           className="font-bold text-6xl xs:text-[90px] md:text-[120px] lg:text-[200px] 2xl:text=[290px]
