@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const [open, setOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const toggleSidebar = () => setOpen((prev) => !prev);
 
@@ -36,15 +39,15 @@ function Sidebar() {
         </button>
       </div>
       <div
-        className={`flex items-start gap-5 fixed top-15 left-0 px-10 h-screen lg:opacity-30 hover:opacity-100
+        className={`flex flex-col items-start gap-2 lg:gap-5 fixed top-15 left-0 px-3 lg:px-10 h-screen lg:opacity-30 hover:opacity-100
        transition-transform duration-500 z-1000 ${
          open ? "translate-x-0" : "-translate-x-full"
-       } md:translate-x-0 md:flex md:flex-col gap-5 
-        px-10`}
+       } md:translate-x-0
+      `}
       >
         <div
-          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-md border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
-          onClick={() => scrollToSection("home")}
+          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-[2px] border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
+          onClick={() => navigate("/")}
         >
           <svg
             width="25"
@@ -77,8 +80,8 @@ function Sidebar() {
           </p>
         </div>
         <div
-          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-md border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
-          onClick={() => scrollToSection("project")}
+          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-[2px] border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
+          onClick={() => navigate("/projects")}
         >
           <svg
             width="15"
@@ -115,14 +118,56 @@ function Sidebar() {
             Projects
           </p>
         </div>
+        <a href="tel:+9779812345678" className="decoration-none">
+          <div className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-[2px] border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="
+            absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 
+            opacity-100                                                
+            transition-all duration-500 ease-in-out 
+            group-hover:opacity-0 group-hover:scale-0"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M3.92517 0.823242H9.39538C9.61785 0.823242 9.83503 0.891085 10.018 1.01772C10.2009 1.14435 10.3408 1.32376 10.4191 1.53199L12.5425 7.17574C12.6124 7.36238 12.6301 7.56459 12.5935 7.76053L11.5289 13.4655C12.837 16.5397 14.9968 18.6062 18.577 20.4597L24.2135 19.366C24.4138 19.3274 24.6209 19.3455 24.8114 19.4185L30.4727 21.5768C30.6796 21.6556 30.8578 21.7954 30.9835 21.9777C31.1093 22.16 31.1768 22.3762 31.177 22.5976V27.8243C31.177 30.1955 29.0887 32.1191 26.6445 31.5868C22.1923 30.6185 13.9425 28.1553 8.16454 22.3774C2.62871 16.843 0.77371 9.19845 0.151002 5.06699C-0.20629 2.70741 1.68517 0.823242 3.92517 0.823242Z"
+                fill="black"
+              />
+            </svg>
+
+            <p
+              className="
+            font-bold
+            opacity-0 invisible pointer-events-none                       v
+            max-w-0 overflow-hidden                                 
+            transition-all duration-500 ease-in-out                 
+            group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto 
+            group-hover:max-w-full group-hover:scale-100                
+          "
+            >
+              Call
+            </p>
+          </div>
+        </a>
+
         <div
-          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-md border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
-          onClick={() => scrollToSection("project")}
+          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-[2px] border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
+          onClick={() =>
+            window.open(
+              "https://mail.google.com/mail/?view=cm&fs=1&to=hritisha.official@gmail.com&su=New%20Project%20Inquiry&body=Name%3A%0AOrganization%20Name%3A%0APhone%20Number%3A%0A%0AAbout%20the%20project%3A",
+              "_blank"
+            )
+          }
         >
           <svg
-            width="15"
-            height="15"
-            viewBox="0 0 32 32"
+            width="20"
+            height="20"
+            viewBox="0 0 30 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="
@@ -132,9 +177,7 @@ function Sidebar() {
             group-hover:opacity-0 group-hover:scale-0"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M3.92517 0.823242H9.39538C9.61785 0.823242 9.83503 0.891085 10.018 1.01772C10.2009 1.14435 10.3408 1.32376 10.4191 1.53199L12.5425 7.17574C12.6124 7.36238 12.6301 7.56459 12.5935 7.76053L11.5289 13.4655C12.837 16.5397 14.9968 18.6062 18.577 20.4597L24.2135 19.366C24.4138 19.3274 24.6209 19.3455 24.8114 19.4185L30.4727 21.5768C30.6796 21.6556 30.8578 21.7954 30.9835 21.9777C31.1093 22.16 31.1768 22.3762 31.177 22.5976V27.8243C31.177 30.1955 29.0887 32.1191 26.6445 31.5868C22.1923 30.6185 13.9425 28.1553 8.16454 22.3774C2.62871 16.843 0.77371 9.19845 0.151002 5.06699C-0.20629 2.70741 1.68517 0.823242 3.92517 0.823242Z"
+              d="M25 5H5C3.625 5 2.5125 6.125 2.5125 7.5L2.5 22.5C2.5 23.875 3.625 25 5 25H25C26.375 25 27.5 23.875 27.5 22.5V7.5C27.5 6.125 26.375 5 25 5ZM25 10L15 16.25L5 10V7.5L15 13.75L25 7.5V10Z"
               fill="black"
             />
           </svg>
@@ -149,7 +192,7 @@ function Sidebar() {
             group-hover:max-w-full group-hover:scale-100                
           "
           >
-            Contact
+            Email
           </p>
         </div>
       </div>

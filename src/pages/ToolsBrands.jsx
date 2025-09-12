@@ -85,49 +85,19 @@ function ToolsBrands() {
     },
   };
 
-  // TOOLS I WORK WITH animation (from left)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          toolsControls.start({
-            x: 0,
-            opacity: 1,
-            transition: {
-              type: "spring",
-              stiffness: 300,
-              damping: 20,
-            },
-          });
-        } else {
-          toolsControls.start({
-            x: -200,
-            opacity: 0,
-            transition: { duration: 0.5, ease: "easeInOut" },
-          });
-        }
-      },
-      { threshold: 0.4 }
-    );
-
-    if (toolsRef.current) observer.observe(toolsRef.current);
-    return () => observer.disconnect();
-  }, [toolsControls]);
-
   return (
-    <div className="flex flex-col bg-[#F8F8F8] px-5 py-20">
+    <div className="flex flex-col bg-[#F8F8F8] gap-10 px-5 py-20 overflow-x-hidden">
       <motion.div
         variants={toolsAnimation}
         initial={"initial"}
         whileInView={"animate"}
-        className="flex items-center text-[22px] gap-2.5  lg:text-[50px] xl:text-[70px] font-bold cursor-pointer"
+        className="flex items-center text-[18px] gap-2.5  lg:text-[50px] xl:text-[70px] font-bold cursor-pointer"
         onClick={() => handleShow("tools")}
       >
         <span className="text-[#777676]">TOOLS I</span>
         <span> WORK WITH</span>
         <svg
-          width="50"
-          height="50"
+          className="w-[30px] h-[30px] lg:w-[50px] lg:h-[50px]"
           viewBox="0 0 50 50"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -143,106 +113,105 @@ function ToolsBrands() {
           variants={ImageAnimation}
           initial={"initial"}
           whileInView={"animate"}
-          className="flex w-full justify-end items-center overflow-hidden"
+          className="flex w-full justify-end items-center "
         >
           <img
             src="/tb.jpg"
             alt="just an image"
-            className="h-[557px] w-[1049px] object-contain mr-[80px]"
+            className="w-[1049px] object-contain lg:mr-[80px] mx-auto"
           />
         </motion.div>
       )}
-      <AnimatePresence mode="wait">
-        {show === "tools" && (
-          <div className="flex justify-end flex-wrap w-full gap-[50px] my-[40px] lg:pr-[150px]">
-            <motion.div
-              variants={editingVariant}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              className="flex flex-col overflow-hidden gap-[10px] w-[500px] px-10 py-20 rounded-[20px] bg-[#1E1E1E] lg:mt-[200px] lg:min-h-[628px]"
-            >
-              <div className="text-white text-[24px] md:text-[28px] lg:text-[32px] font-bold w-full text-right">
-                EDITING
-              </div>
-              <div className="flex flex-col gap-2 text-[16px] lg:text-[20px] font-extralight text-white">
-                <span>• CANVA</span>
-                <span>• IMOVIE</span>
-                <span>• CAPCUT</span>
-                <span>• ADOBE FRESCO</span>
-                <span>• SNAPSEED</span>
-                <span>• LIGHTROOM</span>
-                <span>• VSCO</span>
-                <span>• FIGMA</span>
-              </div>
-            </motion.div>
-            <motion.div
-              variants={marketingVariant}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              className="flex flex-col gap-[10px] w-[500px] px-10 py-20 rounded-[20px] bg-[#1E1E1E] lg:max-h-[628px]"
-            >
-              <div className="text-white text-[24px] md:text-[28px] lg:text-[32px] font-bold w-full text-right">
-                MARKETING
-              </div>
-              <div className="flex flex-col gap-2 text-[16px] lg:text-[20px] font-extralight text-white">
-                <span>• META BUSINESS SUITE</span>
-                <span>• ADS MANAGER</span>
-                <span>• FLODESK</span>
-                <span>• SLACK</span>
-                <span>• METRICOOL</span>
-                <span>• LATER</span>
-                <span>• LOOMLY</span>
-                <span>• MONDAY</span>
-                <span>• SCALE WITH SPARK</span>
-                <span>• NOTION</span>
-                <span>• FIGMA</span>
-              </div>
-            </motion.div>
-          </div>
-        )}
-
-        <motion.div
-          variants={brandsAnimation}
-          initial={"initial"}
-          whileInView={"animate"}
-          className="flex justify-end gap-2.5 items-center text-[22px]  lg:text-[50px] xl:text-[70px] font-bold w-full my-[40px] cursor-pointer"
-          onClick={() => handleShow("brands")}
-        >
-          <svg
-            width="50"
-            height="50"
-            viewBox="0 0 50 50"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+      {show === "tools" && (
+        <div className="flex justify-end flex-wrap w-full gap-[50px] my-[40px] lg:pr-[150px]">
+          <motion.div
+            variants={editingVariant}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className="flex flex-col gap-[10px] w-[500px] px-10 py-20 rounded-[20px] bg-[#1E1E1E] lg:mt-[200px] lg:min-h-[628px]"
           >
-            <path
-              d="M10.4166 6.24957L10.4166 43.7496C10.4178 44.1292 10.5225 44.5014 10.7194 44.826C10.9164 45.1506 11.1982 45.4153 11.5344 45.5916C11.8706 45.768 12.2486 45.8493 12.6276 45.8269C13.0066 45.8044 13.3723 45.679 13.6853 45.4641L40.7687 26.7142C41.8916 25.9371 41.8916 24.0662 40.7687 23.2871L13.6853 4.53707C13.3729 4.32003 13.007 4.19276 12.6274 4.16908C12.2478 4.14539 11.8689 4.2262 11.532 4.40272C11.195 4.57924 10.9129 4.84472 10.7163 5.17032C10.5196 5.49593 10.416 5.86919 10.4166 6.24957Z"
-              fill="#777676"
-            />
-          </svg>
-          <span className="text-[#777676]">BRANDS I'VE </span>
-          <span> WORKED WITH</span>
-        </motion.div>
-        {show === "brands" && (
-          <main className="flex-1  text-black py-20 relative bg-gray-300 rounded-[20px]">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-5 ">
-              {logo.map((brand, i) => (
-                <div key={i} className=" flex items-center justify-center">
-                  <div className="bg-gray-300 rounded-2xl transition-transform duration-300 ease-in-out hover:scale-105 ">
-                    <img
-                      src={brand.img}
-                      alt={`brand-${i}`}
-                      className={`w-30 h-30  object-contain transition-transform duration-300 ease-in-out hover:scale-120 ${brand.style}`}
-                    />
-                  </div>
-                </div>
-              ))}
+            <div className="text-white text-[24px] md:text-[28px] lg:text-[32px] font-bold w-full text-right">
+              EDITING
             </div>
-          </main>
-        )}
-      </AnimatePresence>
+            <div className="flex flex-col gap-2 text-[16px] lg:text-[20px] font-extralight text-white">
+              <span>• CANVA</span>
+              <span>• IMOVIE</span>
+              <span>• CAPCUT</span>
+              <span>• ADOBE FRESCO</span>
+              <span>• SNAPSEED</span>
+              <span>• LIGHTROOM</span>
+              <span>• VSCO</span>
+              <span>• FIGMA</span>
+            </div>
+          </motion.div>
+          <motion.div
+            variants={marketingVariant}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className="flex flex-col gap-[10px] w-[500px] px-10 py-20 rounded-[20px] bg-[#1E1E1E] lg:max-h-[628px]"
+          >
+            <div className="text-white text-[24px] md:text-[28px] lg:text-[32px] font-bold w-full text-right">
+              MARKETING
+            </div>
+            <div className="flex flex-col gap-2 text-[16px] lg:text-[20px] font-extralight text-white">
+              <span>• META BUSINESS SUITE</span>
+              <span>• ADS MANAGER</span>
+              <span>• FLODESK</span>
+              <span>• SLACK</span>
+              <span>• METRICOOL</span>
+              <span>• LATER</span>
+              <span>• LOOMLY</span>
+              <span>• MONDAY</span>
+              <span>• SCALE WITH SPARK</span>
+              <span>• NOTION</span>
+              <span>• FIGMA</span>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      <motion.div
+        variants={brandsAnimation}
+        initial={"initial"}
+        whileInView={"animate"}
+        className="flex justify-end gap-2.5 items-center text-[18px]  lg:text-[50px] xl:text-[70px] font-bold w-full my-[40px] cursor-pointer"
+        onClick={() => handleShow("brands")}
+      >
+        <svg
+          className="w-[30px] h-[30px] lg:w-[50px] lg:h-[50px]"
+          viewBox="0 0 50 50"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.4166 6.24957L10.4166 43.7496C10.4178 44.1292 10.5225 44.5014 10.7194 44.826C10.9164 45.1506 11.1982 45.4153 11.5344 45.5916C11.8706 45.768 12.2486 45.8493 12.6276 45.8269C13.0066 45.8044 13.3723 45.679 13.6853 45.4641L40.7687 26.7142C41.8916 25.9371 41.8916 24.0662 40.7687 23.2871L13.6853 4.53707C13.3729 4.32003 13.007 4.19276 12.6274 4.16908C12.2478 4.14539 11.8689 4.2262 11.532 4.40272C11.195 4.57924 10.9129 4.84472 10.7163 5.17032C10.5196 5.49593 10.416 5.86919 10.4166 6.24957Z"
+            fill="#777676"
+          />
+        </svg>
+        <div className="flex-col sm:flex-row sm:gap-2.5">
+          <span className="text-[#777676] inline-flex">BRANDS I'VE </span>
+          <span> WORKED WITH</span>
+        </div>
+      </motion.div>
+      {show === "brands" && (
+        <main className="flex-1  text-black py-20 relative bg-gray-300 rounded-[20px]">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-5 ">
+            {logo.map((brand, i) => (
+              <div key={i} className=" flex items-center justify-center">
+                <div className="bg-gray-300 rounded-2xl transition-transform duration-300 ease-in-out hover:scale-105 ">
+                  <img
+                    src={brand.img}
+                    alt={`brand-${i}`}
+                    className={`w-30 h-30  object-contain transition-transform duration-300 ease-in-out hover:scale-120 ${brand.style}`}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
+      )}
     </div>
   );
 }

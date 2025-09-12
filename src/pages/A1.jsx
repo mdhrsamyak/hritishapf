@@ -2,7 +2,7 @@ import React from "react";
 
 function A1() {
   return (
-    <div className="flex relative py-[130px] px-[40px] md:px-[114px]">
+    <div className="flex relative py-[130px] px-[40px] bg-[#F8F8F8F7] md:px-[114px]">
       <div className="flex flex-col w-full">
         <div className="text-[16px] md:text-[24] lg:text-[36px] font-bold mb-10">
           SOCIAL MEDIA STRATEGY: HARLEY STREET HEARING

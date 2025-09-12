@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ReactLenis, useLenis } from "lenis/react";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import LoadingAnimation from "./pages/LoadingAnimation";
@@ -22,26 +24,49 @@ function App() {
     }, 3000);
   }, []);
 
+  if (displayAnimation) {
+    return (
+      <div className="fixed top-0 left-0 h-screen w-screen z-[999]">
+        <LoadingAnimation />
+      </div>
+    );
+  }
+
   return (
     <>
-      {displayAnimation ? (
-        <div className="fixed top-0 left-0 h-screen w-screen z-[999]">
-          <LoadingAnimation />
-        </div>
-      ) : (
+      <ReactLenis root />
+      <Router>
         <div className="overflow-y-scroll" style={{ scrollbarWidth: "none" }}>
           <Sidebar />
-          <HomePage />
-          <Page2 />
-          <Expertise />
-          <ToolsBrands />
+          <Routes>
+            <Route path="/" element={<Page1 />} />
+            <Route path="/projects" element={<Project />} />
+          </Routes>
           <Footer />
-          <A1 />
-          <A2 />
         </div>
-      )}
+      </Router>
     </>
   );
 }
+
+const Page1 = () => {
+  return (
+    <>
+      <HomePage />
+      <Page2 />
+      <Expertise />
+      <ToolsBrands />
+    </>
+  );
+};
+
+const Project = () => {
+  return (
+    <>
+      <A1 />
+      <A2 />
+    </>
+  );
+};
 
 export default App;

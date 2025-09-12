@@ -10,7 +10,7 @@ function Expertise() {
 
   return (
     <div className="flex flex-col bg-[#F8F8F8F7] px-7 lg:px-20 pt-[300px] pb-[130px]">
-      <div className="flex flex-col items-center w-full">
+      <div className="flex flex-col gap-3 sm:gap-0 items-center w-full">
         <div className="flex justify-center gap-1 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
