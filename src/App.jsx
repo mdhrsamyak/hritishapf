@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ReactLenis, useLenis } from "lenis/react";
 import "./App.css";
@@ -14,9 +14,13 @@ import A2 from "./pages/A2";
 import ToolsBrands from "./pages/ToolsBrands";
 import Footer from "./pages/Footer";
 import Sidebar from "./pages/Sidebar";
+import Pagenumber from "./pages/Pagenumber";
 
 function App() {
   const [displayAnimation, setDisplayAnimation] = useState(false);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const sectionRefs = useRef([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,6 +36,30 @@ function App() {
     );
   }
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = sectionRefs.current.indexOf(entry.target);
+            setPageNumber(index + 1);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sectionRefs.current.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sectionRefs.current.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
     <>
       <ReactLenis root />
@@ -39,8 +67,39 @@ function App() {
         <div className="overflow-y-scroll" style={{ scrollbarWidth: "none" }}>
           <Sidebar />
           <Routes>
-            <Route path="/" element={<Page1 />} />
-            <Route path="/projects" element={<Project />} />
+            <Route
+              path="/"
+              element={
+                <>
+                  <Pagenumber number={pageNumber} />
+
+                  <div ref={(el) => (sectionRefs.current[0] = el)}>
+                    <HomePage />
+                  </div>
+
+                  <div ref={(el) => (sectionRefs.current[1] = el)}>
+                    <Page2 />
+                  </div>
+
+                  <div ref={(el) => (sectionRefs.current[2] = el)}>
+                    <Expertise />
+                  </div>
+
+                  <div ref={(el) => (sectionRefs.current[3] = el)}>
+                    <ToolsBrands />
+                  </div>
+                </>
+              }
+            />
+            <Route
+              path="/projects"
+              element={
+                <>
+                  <A1 />
+                  <A2 />
+                </>
+              }
+            />
           </Routes>
           <Footer />
         </div>
@@ -48,25 +107,5 @@ function App() {
     </>
   );
 }
-
-const Page1 = () => {
-  return (
-    <>
-      <HomePage />
-      <Page2 />
-      <Expertise />
-      <ToolsBrands />
-    </>
-  );
-};
-
-const Project = () => {
-  return (
-    <>
-      <A1 />
-      <A2 />
-    </>
-  );
-};
 
 export default App;

@@ -11,7 +11,7 @@ function Sidebar() {
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = "/";
-    link.download = "Samyak_Manandhar_Resume_2025.pdf";
+    link.download = "CV.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -193,6 +193,58 @@ function Sidebar() {
           "
           >
             Email
+          </p>
+        </div>
+        <div
+          className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-[2px] border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
+          onClick={handleDownload}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="
+            absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 
+            opacity-100                                                
+            transition-all duration-500 ease-in-out 
+            group-hover:opacity-0 group-hover:scale-0"
+          >
+            <path
+              d="M11.666 2.5V5.83333C11.666 6.05435 11.7538 6.26631 11.9101 6.42259C12.0664 6.57887 12.2783 6.66667 12.4993 6.66667H15.8327"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M14.166 17.5H5.83268C5.39065 17.5 4.96673 17.3244 4.65417 17.0118C4.34161 16.6993 4.16602 16.2754 4.16602 15.8333V4.16667C4.16602 3.72464 4.34161 3.30072 4.65417 2.98816C4.96673 2.67559 5.39065 2.5 5.83268 2.5H11.666L15.8327 6.66667V15.8333C15.8327 16.2754 15.6571 16.6993 15.3445 17.0118C15.032 17.3244 14.608 17.5 14.166 17.5Z"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9.16602 10.4165C9.16602 10.085 9.03432 9.76704 8.7999 9.53262C8.56548 9.2982 8.24754 9.1665 7.91602 9.1665C7.58449 9.1665 7.26655 9.2982 7.03213 9.53262C6.79771 9.76704 6.66602 10.085 6.66602 10.4165V12.9165C6.66602 13.248 6.79771 13.566 7.03213 13.8004C7.26655 14.0348 7.58449 14.1665 7.91602 14.1665C8.24754 14.1665 8.56548 14.0348 8.7999 13.8004C9.03432 13.566 9.16602 13.248 9.16602 12.9165M10.8327 9.1665L12.0827 14.1665L13.3327 9.1665"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <p
+            className="
+            font-bold
+            opacity-0 invisible pointer-events-none                       v
+            max-w-0 overflow-hidden                                 
+            transition-all duration-500 ease-in-out                 
+            group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto 
+            group-hover:max-w-full group-hover:scale-100                
+          "
+          >
+            CV
           </p>
         </div>
       </div>
