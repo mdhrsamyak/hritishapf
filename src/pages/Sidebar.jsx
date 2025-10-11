@@ -10,7 +10,7 @@ function Sidebar() {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/";
+    link.href = "/CV.pdf";
     link.download = "CV.pdf";
     document.body.appendChild(link);
     link.click();
