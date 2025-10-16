@@ -22,12 +22,12 @@ function Footer() {
             className="hover:text-gray-400 cursor-pointer"
             onClick={() =>
               window.open(
-                "https://mail.google.com/mail/?view=cm&fs=1&to=hritisha.official@gmail.com&su=New%20Project%20Inquiry&body=Name%3A%0AOrganization%20Name%3A%0APhone%20Number%3A%0A%0AAbout%20the%20project%3A",
+                "https://mail.google.com/mail/?view=cm&fs=1&to=hritisha.manandhar01@gmail.com&su=New%20Project%20Inquiry&body=Name%3A%0AOrganization%20Name%3A%0APhone%20Number%3A%0A%0AAbout%20the%20project%3A",
                 "_blank"
               )
             }
           >
-            hritisha.official@gmail.com
+            hritisha.manandhar01@gmail.com
           </span>
         </div>
       </div>
