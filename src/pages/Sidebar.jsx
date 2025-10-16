@@ -159,7 +159,7 @@ function Sidebar() {
           className="group flex justify-center gap-2 items-center relative h-16 w-16 rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.4)] bg-white/30 backdrop-blur-[2px] border border-black/30 pointer-events-auto hover:w-40 px-2 transition-all duration-500 ease-in-out cursor-pointer"
           onClick={() =>
             window.open(
-              "https://mail.google.com/mail/?view=cm&fs=1&to=hritisha.official@gmail.com&su=New%20Project%20Inquiry&body=Name%3A%0AOrganization%20Name%3A%0APhone%20Number%3A%0A%0AAbout%20the%20project%3A",
+              "https://mail.google.com/mail/?view=cm&fs=1&to=hritisha.manandhar01@gmail.com&su=New%20Project%20Inquiry&body=Name%3A%0AOrganization%20Name%3A%0APhone%20Number%3A%0A%0AAbout%20the%20project%3A",
               "_blank"
             )
           }
